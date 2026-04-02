@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nicole 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== INTRO ===== -->
+<div id="intro-overlay">
+    <canvas id="petal-canvas"></canvas>
+    <div class="intro-content">
+        <span class="intro-tag">✦ Un adelanto especial ✦</span>
+        <div class="intro-name">Nicole</div>
+        <p class="intro-sub">Como no aguanto las ganas de celebrarte...</p>
+        <div class="intro-hearts">🌸  🌸</div>
+    </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div id="main-content">
+
+    <section class="hero">
+        <div class="hero-inner">
+            <p class="eyebrow">✦ Cuenta regresiva ✦</p>
+            <h2>
+                ¿Quién dice que hay que esperar?
+                <em>Estas mas vieja</em>
+            </h2>
+            <p class="subtitle">Vamos mi rataaaaa</p>
+            <div id="countdown" class="countdown"></div>
+        </div>
+    </section>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <section class="surprise-section">
+        <p class="section-tag">✦ solo para ti ✦</p>
+        <h3>Unos <em>pre-regalos</em> especiales</h3>
+        <p class="section-desc">Miraaaa.</p>
+
+        <div class="grid">
+            <div class="card" onclick="openModal('recuerdo')">
+                <span class="card-emoji">📸</span>
+                <span class="card-title">Un recuerdo</span>
+                <span class="card-hint">Haz clic para abrir</span>
+            </div>
+            <div class="card" onclick="openModal('vale')">
+                <span class="card-emoji">🎟️</span>
+                <span class="card-title">Vale por...</span>
+                <span class="card-hint">¿Qué será?</span>
+            </div>
+            <div class="card" onclick="openModal('musica')">
+                <span class="card-emoji">🎵</span>
+                <span class="card-title">Playlists</span>
+                <span class="card-hint">Para tus oídos</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ===== CARTA ANIMADA ===== -->
+    <section class="letter-section">
+        <p class="section-tag">✦ de corazón ✦</p>
+        <h3 class="letter-heading">Una <em>cartita</em> con todo mi cariño</h3>
+
+        <div class="envelope-wrapper">
+            <!-- SOBRE -->
+            <div class="envelope" id="envelope" onclick="openEnvelope()">
+                <div class="envelope-flap" id="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="envelope-seal">💌</div>
+                    <p class="envelope-hint">Toca para abrir</p>
+                </div>
+            </div>
+
+            <!-- CARTA -->
+            <div class="letter-paper" id="letter-paper">
+                <div class="letter-inner">
+                    <p class="letter-date">Cuenca, Abril 2026</p>
+                    <p class="letter-salute">Nicole querida,</p>
+                    <p class="letter-body" id="letter-body"></p>
+                    <p class="letter-sign">Con todo mi cariño,<br><span>Tú sabes quién 🌸</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ===== TARJETA RASCA Y GANA ===== -->
+    <section class="gift-section">
+        <p class="section-tag">✦ un último detalle ✦</p>
+        <h3 class="letter-heading"><em>Rasca</em> tu regalo</h3>
+        <p class="section-desc">Pasa el cursor o el dedo para revelar la sorpresa.</p>
+
+        <div class="gift-card-wrapper">
+            <div class="gift-reveal" id="gift-reveal">
+                <span class="gift-reveal-emoji">🎉</span>
+                <p class="gift-reveal-title">Que comidita seraaa...</p>
+                <p class="gift-reveal-text">Hamburguesita o Pasta jeje</p>
+            </div>
+            <canvas id="scratch-canvas"></canvas>
+        </div>
+        <p class="scratch-hint" id="scratch-hint">← Raspa con el cursor o el dedo →</p>
+    </section>
+
+    <footer class="footer">
+        Te Amo con mi vida princesita de mi vida
+        <small>✦ Feliz cumpleaños anticipado ✦</small>
+    </footer>
+</div>
+
+<!-- ===== MODAL ===== -->
+<div id="modal" class="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <span id="modal-emoji" class="modal-emoji"></span>
+        <h3 id="modal-title" class="modal-title"></h3>
+        <img id="modal-img" class="memory-img" src="" alt="Recuerdo especial">
+        <p id="modal-text" class="modal-text"></p>
+        <a id="music-btn" class="music-btn" href="https://music.youtube.com/playlist?list=PLzoUH7CxjJgdcQQk1JIL4n_pvr1Zxs9Un" target="_blank">
+            🎵 Abrir playlist
+        </a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
