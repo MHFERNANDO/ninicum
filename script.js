@@ -1,3 +1,25 @@
+// ============================================================
+// MAGIC BUTTON — orbiting particles
+// ============================================================
+(function spawnParticles() {
+    window.addEventListener('load', () => {
+        const container = document.getElementById('magic-particles');
+        if (!container) return;
+        const items = ['🌸','✨','💕','🌺','⭐','🌷'];
+        items.forEach((emoji, i) => {
+            const s = document.createElement('span');
+            s.textContent = emoji;
+            s.style.animationDuration  = (3.5 + i * 0.6) + 's';
+            s.style.animationDelay     = (i * 0.55) + 's';
+            s.style.top  = '50%';
+            s.style.left = '50%';
+            s.style.marginTop  = '-0.5rem';
+            s.style.marginLeft = '-0.5rem';
+            container.appendChild(s);
+        });
+    });
+})();
+
 // ===== CONFIG =====
 const BIRTHDAY = 'April 7, 2026 00:00:00';
 const INTRO_DURATION = 6500;
@@ -152,11 +174,11 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 
 // ===== CARTA ANIMADA =====
 const LETTER_TEXT =
-`Durante todos estos momentos hemos experimentado un sin numero de momentos juntos, pero sin duda alguna, quiero expresarte en este tu no cumpleaños algo especial..
+`Hay personas que llegan a tu vida y la hacen más brillante sin siquiera intentarlo. Tú eres una de esas personas para mí.
 
-Gracias por cada risa, cada momento de locura compartida y por ser exactamente esa rata que me mueve el mundo entero, eres tu mujer.
+Gracias por cada risa, cada momento de locura compartida y por ser exactamente como eres — sin filtros y sin pretextos.
 
-Todavia no es el cumple mi amor, pero vamos comenzando reciencitoooooo.
+Espero que este cumpleaños sea tan especial como tú lo eres. Y que sepas que, aunque los días pasen, el cariño que te tengo solo crece.
 
 ¡Feliz cumpleaños, Nicole! 🎂🌸`;
 
@@ -278,4 +300,37 @@ function typewriterEffect(el, text, speed) {
     // Init after fonts/layout settle
     window.addEventListener('load', () => setTimeout(sizeCanvas, 400));
     window.addEventListener('resize', sizeCanvas);
+})();
+
+
+// ============================================================
+// BOTÓN MÁGICO A MEDIANOCHE → siguiente.html
+// ============================================================
+(function magicButton() {
+    function msUntilMidnight() {
+        const now    = new Date();
+        const target = new Date('April 7, 2026 00:00:00');
+        return target - now;
+    }
+
+    function revealButton() {
+        const btn = document.getElementById('magic-birthday-btn');
+        if (!btn) return;
+        btn.classList.add('revealed');
+        // Confeti suave al aparecer
+        setTimeout(() => {
+            confetti({ particleCount: 80, spread: 70, origin: { y: 0.9 },
+                colors: ['#f5c6c6','#e8a0a0','#c9956b','#fdf0e8'] });
+        }, 600);
+    }
+
+    const ms = msUntilMidnight();
+
+    if (ms <= 0) {
+        // Ya es el cumpleaños
+        revealButton();
+        return;
+    }
+
+    setTimeout(revealButton, ms);
 })();
